@@ -14,6 +14,7 @@ export class App {
     static init() {
         const optionsToggler = document.getElementById('options-toggler');
         const optionsContainer = document.getElementById('options');
+        const mapStyleToggler = document.getElementById('map-style');
 
         this.optionsForm = new SearchOptions(optionsToggler);
         this.loader = new Loader('loader');
@@ -21,6 +22,15 @@ export class App {
         optionsToggler.addEventListener('click', () => {
             toggleClassName(optionsToggler, 'open');
             this.optionsForm.toggleForm();
+        });
+
+        mapStyleToggler.addEventListener('click', (e) => {
+            toggleClassName(e.target, 'disabled');
+            const togglerIsActive = e.target.dataset.active;
+            const isActive = togglerIsActive === 'true' ? true : false;
+            const styleStr =  isActive ? 'streets-v11' : 'dark-v10';
+            e.target.dataset.active = !isActive;
+            this.map.map.setStyle('mapbox://styles/mapbox/' + styleStr);
         });
     }
 

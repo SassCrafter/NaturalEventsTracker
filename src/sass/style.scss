@@ -1,5 +1,6 @@
 $overlay-color: rgba(0,0,0, .67);
 $bg-color: #4380a1d2;
+$dark-mode-color: #6FFF86;
 $t-time: 300ms;
 $loader-bg: #0077b6;
 
@@ -235,6 +236,42 @@ img {
 	width: 100%;
 	height: calc(100vh - 6rem);
 	margin-top: 6rem;
+	position: relative;
+
+	&__style-toggler {
+		width: 4rem;
+		height: 2rem;
+		border-radius: 20rem;
+		background-color: $dark-mode-color;
+		position: absolute;
+		top: 10rem;
+		right: 1.5rem;
+		z-index: 10;
+		cursor: pointer;
+		transition: background-color $t-time linear;
+
+		&::before {
+			content: '';
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 50%;
+			background-color: #333;
+			position: absolute;
+			top: 50%;
+			left: calc(100% - 1.8rem);
+			transform: translateY(-50%);
+			transition: transform $t-time ease-in-out, background-color $t-time linear;
+		}
+
+		&.disabled {
+			background-color: #333;
+
+			&::before {
+				transform: translateX(-110%) translateY(-50%) rotate(360deg);
+				background-color: $dark-mode-color;
+			}
+		}
+	}
 }
 
 // .marker {

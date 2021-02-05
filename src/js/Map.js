@@ -68,8 +68,8 @@ export default class {
     mapboxgl.accessToken = this.accessToken;
     this.map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-64.5, -40],
+      style: 'mapbox://styles/mapbox/dark-v10',
+      center: [-20, -50],
       zoom: 1,
     });
     this.addControlls();

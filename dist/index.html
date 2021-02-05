@@ -48,17 +48,12 @@
 					</select>
 				</div>
 				<button type="submit" class="btn btn--submit" id="category-submit-btn">Submit</button>
-				<div class="map-menu" id="map-menu">
-				<button class="btn btn--map" data-style='streets-v11' aria-label='Streets style'>Streets</button>
-				<button class="btn btn--map" data-style='light-v10' aria-label='Light style'>Light</button>
-				<button class="btn btn--map" data-style='dark-v10' aria-label='Dark style'>Dark</button>
-				<button class="btn btn--map" data-style='outdoors-v11' aria-label='Outdoors style'>outdoors</button>
-				<button class="btn btn--map" data-style='satellite-v9' aria-label='satellite style'>satellite</button>
-			</div>
 			</form>
 
 		</div>
 	</section>
-	<div class="map" id="map"></div>
+	<div class="map" id="map">
+		<div class="map__style-toggler" id="map-style" data-active='true'></div>
+	</div>
 </body>
 </html>
