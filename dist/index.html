@@ -4,25 +4,61 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="bundle.css">
-	<script src="./bundle.js" defer></script>
-
 	<!-- <link rel="icon" 
       type="image/png" 
-      href="./images/globe.icon"> -->
+	  href="./images/globe.icon"> -->
+
+
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="bundle.css">
+	
+	<script src="./bundle.js" defer></script>
 	<title>Natural Events Tracker</title>
 </head>
 <body>
+
+	<!-- <template>
+		
+	</template> -->
+
+		<section class="loader visible" id="loader">
+			<div class="loader__circle"></div>
+		</section>
+
 	<header class="header">
 		<div class="container header__content">
 			<a href="index.html" class="logo">
 			<img src="./images/globe.svg" alt="">
 		</a>
-		<div class="options-toggler" role='button' tabindex="0">
+		<div class="options-toggler" id="options-toggler" role='button' tabindex="0">
 			<div class="options-toggler__line"></div>
 		</div>
 		</div>
 	</header>
+	<section class="options" id="options">
+		<div class="container">
+			<form class="form" id="options-form">
+				<div class="form__group">
+					<label for="category-input">Pick a category</label>
+					<select name="categories" id="category-input" class="form__select">
+						<option value="8">Wildfires</option>
+						<option value="15">Sea and Lake Ice</option>
+						<option value="10">Severe Storms</option>
+						<option value="12">Volcanoes</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn--submit" id="category-submit-btn">Submit</button>
+				<div class="map-menu" id="map-menu">
+				<button class="btn btn--map" data-style='streets-v11' aria-label='Streets style'>Streets</button>
+				<button class="btn btn--map" data-style='light-v10' aria-label='Light style'>Light</button>
+				<button class="btn btn--map" data-style='dark-v10' aria-label='Dark style'>Dark</button>
+				<button class="btn btn--map" data-style='outdoors-v11' aria-label='Outdoors style'>outdoors</button>
+				<button class="btn btn--map" data-style='satellite-v9' aria-label='satellite style'>satellite</button>
+			</div>
+			</form>
+
+		</div>
+	</section>
 	<div class="map" id="map"></div>
 </body>
 </html>

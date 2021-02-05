@@ -4,6 +4,148 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background-color: red;
+  font-size: 1.6rem;
+  background-color: #fafafa;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  background-color: #4380a1d2;
+  color: white;
+}
+
+.header {
+  width: 100%;
+  height: 6rem;
+  background-color: #4380a1d2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.header__content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo img {
+  width: 4rem;
+}
+
+.options-toggler {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+.options-toggler.open .options-toggler__line {
+  height: 0;
+}
+.options-toggler.open .options-toggler__line::before, .options-toggler.open .options-toggler__line::after {
+  top: 0;
+  transition: transform 300ms ease-in-out 300ms, top 300ms ease-in-out;
+}
+.options-toggler.open .options-toggler__line::before {
+  transform: rotate(-45deg);
+}
+.options-toggler.open .options-toggler__line::after {
+  transform: rotate(45deg);
+}
+.options-toggler__line {
+  width: 90%;
+  height: 3px;
+  background-color: #fff;
+  position: relative;
+  transition: height 100ms linear 300ms;
+}
+.options-toggler__line::before, .options-toggler__line::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: inherit;
+  position: absolute;
+  transition: transform 300ms ease-in-out, top 300ms ease-in-out 300ms;
+}
+.options-toggler__line::before {
+  top: -8px;
+}
+.options-toggler__line::after {
+  top: calc(100% + 6px);
+}
+
+.options {
+  width: 100%;
+  padding: 2rem 0;
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in-out;
+  z-index: 50;
+}
+.options.open {
+  transform: translateX(0);
+}
+
+.form {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.4);
+}
+.form__group {
+  margin-bottom: 1rem;
+}
+.form label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+.form select {
+  width: 100%;
+  max-width: 15rem;
+}
+
+.map {
+  width: 100%;
+  height: calc(100vh - 6rem);
+  margin-top: 6rem;
+}
+
+.marker {
+  width: 2rem;
+}
+.marker img {
+  width: 100%;
 }
